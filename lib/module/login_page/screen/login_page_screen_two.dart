@@ -10,8 +10,11 @@ class LoginPageScreenTwo extends StatelessWidget {
   Widget build(BuildContext context) {
     final LoginController controller = Get.put(LoginController());
 
-    return PopScope(
-      canPop: false,
+    return WillPopScope(
+      onWillPop: () async {
+        Get.offAllNamed(AppRoutes.login);
+        return true;
+      },
       child: Scaffold(
         backgroundColor: Colors.white,
         body: SafeArea(
