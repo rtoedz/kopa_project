@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kopa_project/core/router/app_routes.dart';
 import 'package:kopa_project/module/login_page/controller/login_page_controller.dart';
 
 class LoginPageScreenTwo extends StatelessWidget {
@@ -9,48 +10,51 @@ class LoginPageScreenTwo extends StatelessWidget {
   Widget build(BuildContext context) {
     final LoginController controller = Get.put(LoginController());
 
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => controller.closeKeyboard(context),
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.all(24),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  const SizedBox(height: 60),
-                  Text(
-                    'Welcome',
-                    style: TextStyle(
-                      fontSize: 32,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    'Please Login to your account',
-                    style: TextStyle(fontSize: 16, color: Colors.black54),
-                  ),
-                  const SizedBox(height: 130),
-                  TextField(
-                    focusNode: controller.emailFocusNode,
-                    onChanged: (value) {
-                      controller.email.value = value;
-                    },
-                    decoration: InputDecoration(
-                      labelText: 'Email or Username',
-                      prefixIcon: Icon(Icons.mail),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
+    return PopScope(
+      canPop: false,
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: SafeArea(
+          child: GestureDetector(
+            onTap: () => controller.closeKeyboard(context),
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(24),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    const SizedBox(height: 60),
+                    Text(
+                      'Welcome',
+                      style: TextStyle(
+                        fontSize: 32,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
                       ),
                     ),
-                  ),
-                  const SizedBox(height: 16),
-                  // Password Field
-                  Obx(() => TextField(
+                    const SizedBox(height: 8),
+                    Text(
+                      'Please Login to your account',
+                      style: TextStyle(fontSize: 16, color: Colors.black54),
+                    ),
+                    const SizedBox(height: 130),
+                    TextField(
+                      focusNode: controller.emailFocusNode,
+                      onChanged: (value) {
+                        controller.email.value = value;
+                      },
+                      decoration: InputDecoration(
+                        labelText: 'Email or Username',
+                        prefixIcon: Icon(Icons.mail),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                    // Password Field
+                    Obx(
+                      () => TextField(
                         focusNode: controller.passwordFocusNode,
                         obscureText: !controller.isPasswordVisible.value,
                         onChanged: (value) {
@@ -71,50 +75,52 @@ class LoginPageScreenTwo extends StatelessWidget {
                             borderRadius: BorderRadius.circular(8),
                           ),
                         ),
-                      )),
-                  const SizedBox(height: 8),
+                      ),
+                    ),
+                    const SizedBox(height: 8),
 
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: TextButton(
-                      onPressed: () {
-                        print('Forgot Password Clicked');
-                      },
-                      child: Text(
-                        'Forgot Password?',
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.black,
-                          decoration: TextDecoration.underline,
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: TextButton(
+                        onPressed: () {
+                          print('Forgot Password Clicked');
+                        },
+                        child: Text(
+                          'Forgot Password?',
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: Colors.black,
+                            decoration: TextDecoration.underline,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  const SizedBox(height: 24),
+                    const SizedBox(height: 24),
 
-                  // Login Button
-                  SizedBox(
-                    width: double.infinity,
-                    height: 48,
-                    child: ElevatedButton(
-                      onPressed: controller.handleLogin,
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.black,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
+                    // Login Button
+                    SizedBox(
+                      width: double.infinity,
+                      height: 48,
+                      child: ElevatedButton(
+                        onPressed: controller.handleLogin,
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.black,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
                         ),
-                      ),
-                      child: Text(
-                        'Login',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                        child: Text(
+                          'Login',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
