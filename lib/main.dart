@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:kopa_project/core/base/base_controller.dart';
-import 'package:kopa_project/core/router/app_pages.dart';
-import 'package:kopa_project/core/router/app_routes.dart';
+import 'package:kopa_project/cores/base/base_controller.dart';
+import 'package:kopa_project/cores/router/app_pages.dart';
+import 'package:kopa_project/cores/router/app_routes.dart';
 
 
 void main() async {

@@ -13,7 +13,7 @@ class SplashScreen extends StatelessWidget {
       builder: (_) => AnnotatedRegion(
         value: const SystemUiOverlayStyle(statusBarColor: Colors.transparent),
         child: Scaffold(
-          backgroundColor: const Color.fromARGB(233, 255, 255, 255),
+          backgroundColor: Colors.black,
           body: Container(
             padding: const EdgeInsets.only(top: 80, bottom: 32),
             decoration: const BoxDecoration(
@@ -22,8 +22,8 @@ class SplashScreen extends StatelessWidget {
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [
-                  Color.fromARGB(255, 255, 255, 255),
-                  Color.fromARGB(255, 226, 226, 226),
+                  Colors.black,
+                  Colors.black,
                 ],
               ),
             ),
@@ -31,12 +31,16 @@ class SplashScreen extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset( 
-                    'assets/images/splash_screen/kopa_logo.png',
+                  Image.asset(
+                    'assets/images/general/logo_mb_white.png',
                     width: 200,
                     height: 200,
                   ),
-                  
+                  Image.asset(
+                    'assets/images/general/logo_mb_font_white.png',
+                    width: 200,
+                    height: 200,
+                  ),
                 ],
               ),
             ),

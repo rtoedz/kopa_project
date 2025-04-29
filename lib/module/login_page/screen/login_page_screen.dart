@@ -1,170 +1,144 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kopa_project/core/router/app_routes.dart';
+import 'package:kopa_project/cores/router/app_routes.dart';
+import 'package:kopa_project/cores/style/typhography_style.dart';
 import 'package:kopa_project/module/login_page/controller/login_page_controller.dart';
+import 'package:kopa_project/widgets/custom_button.dart';
+import 'package:kopa_project/widgets/custom_textfield.dart';
 
 class LoginPageScreen extends StatelessWidget {
   const LoginPageScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<LoginController>(
-      init: LoginController(), // Inisialisasi controller
-      builder:
-          (_) => Scaffold(
-            backgroundColor: Colors.white,
-            body: SafeArea(
-              child: Padding(
-                padding: const EdgeInsets.all(24),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    const SizedBox(height: 124),
-                    Stack(
+    final LoginController controller = Get.put(LoginController());
+
+
+    return WillPopScope(
+      onWillPop: () async {
+        Get.offAllNamed(AppRoutes.login);
+        return true;
+      },
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: SafeArea(
+          child: GestureDetector(
+            onTap: () => controller.closeKeyboard(context),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  // const SizedBox(height: 60),
+                  Container(
+                    width: Get.width,
+                    height: Get.height * 0.34,
+                    color: Colors.black,
+                    child: Column(
                       children: [
-                        Container(
-                          height: 200, // Sesuaikan ukuran
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            image: const DecorationImage(
-                              image: NetworkImage(
-                                "https://images.beta.cosmos.so/6e12791c-9c1a-42cf-89fc-85a20b059f14?format=jpeg",
-                              ),
-                              fit: BoxFit.cover,
-                            ),
-                            borderRadius: BorderRadius.circular(16),
+                        const SizedBox(height: 24),
+                        Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: Image.asset(
+                            'assets/images/general/logo_mb_white.png',
+                            width: 120,
+                            height: 120,
                           ),
                         ),
-                        Container(
-                          height: 200,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              begin: Alignment.topCenter,
-                              end: Alignment.bottomCenter,
-                              colors: [
-                                Colors.black.withOpacity(0.01),
-                                Colors.black.withOpacity(0.5),
-                              ],
-                            ),
-                            borderRadius: BorderRadius.circular(16),
+                        Text(
+                          'Welcome',
+                          style: TypographyStyle.h1.copyWith(
+                            fontSize: 40,
+                            color: Colors.white,
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          'Please Login to your account',
+                          style: TypographyStyle.body.copyWith(
+                            fontSize: 16,
+                            color: Colors.white54,
                           ),
                         ),
                       ],
                     ),
-                    const SizedBox(height: 124),
-                    Text(
-                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod .',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                      ),
-                    ),
-                    const SizedBox(height: 128),
-                    _buildLoginButton(
-                      context,
-                      'Login Now',
-                      Icons.login,
-                      Colors.white,
-                      () => Get.offAllNamed(AppRoutes.loginTwo),
-                      backgroundColor: Colors.blue,
-                    ),
-                    const SizedBox(height: 16),
-                    Text.rich(
-                      TextSpan(
-                        text: 'By continuing you agree to Kopa Project\'s ',
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.grey,
+                  ),
+                  const SizedBox(height: 40),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Email',
+                          style: TypographyStyle.body.copyWith(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
                         ),
-                        children: [
-                          TextSpan(
-                            text: 'Terms of Service',
-                            style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.blue,
-                            ),
-                            recognizer: TapGestureRecognizer()..onTap = () {},
+                        CustomTextField(
+                          controller: controller.emailController,
+                          hintText: 'Enter Your Email',
+                          prefixIcon: Icons.mail,
+                        ),
+                        const SizedBox(height: 20),
+                        // Password Field
+                        Text(
+                          'Password',
+                          style: TypographyStyle.body.copyWith(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
                           ),
-                          TextSpan(
-                            text: ' and ',
-                            style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.grey,
-                            ),
+                        ),
+                        Obx(
+                          () => CustomTextField(
+                            controller: controller.passwordController,
+                            hintText: 'Enter your Password',
+                            prefixIcon: Icons.lock,
+                            suffixIcon: controller.isPasswordVisible.value
+                                ? Icons.visibility
+                                : Icons.visibility_off,
+                            obscureText: !controller.isPasswordVisible.value,
+                            focusNode: controller.passwordFocusNode,
+                            onSuffixIconTap:
+                                controller.togglePasswordVisibility,
                           ),
-                          TextSpan(
-                            text: 'Privacy Policy',
-                            style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.blue,
-                            ),
-                            recognizer:
-                                TapGestureRecognizer()
-                                  ..onTap = () {
-                                    // Implement opening Privacy Policy
-                                  },
+                        ),
+                        // const SizedBox(height: 8),
+                        // Align(
+                        //   alignment: Alignment.centerRight,
+                        //   child: TextButton(
+                        //     onPressed: () {
+                        //       print('Forgot Password Clicked');
+                        //     },
+                        //     child: Text(
+                        //       'Forgot Password?',
+                        //       style: TextStyle(
+                        //         fontSize: 14,
+                        //         color: Colors.black,
+                        //         decoration: TextDecoration.underline,
+                        //       ),
+                        //     ),
+                        //   ),
+                        // ),
+                        const SizedBox(height: 52),
+                        // Login Button
+                        SizedBox(
+                          width: double.infinity,
+                          height: 52,
+                          child: CustomButton(
+                            text: 'Login',
+                            onPressed: () {
+                              Get.offAllNamed(AppRoutes.mainNav);
+                            },
                           ),
-                          const TextSpan(text: '.'),
-                        ],
-                      ),
-                      textAlign: TextAlign.center,
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ),
-    );
-  }
-
-  Widget _buildLoginButton(
-    BuildContext context,
-    String text,
-    IconData icon,
-    Color iconColor,
-    VoidCallback onPressed, {
-    Color backgroundColor = Colors.black,
-    Color? borderColor,
-    Color textColor = Colors.white,
-  }) {
-    return SizedBox(
-      width: double.infinity,
-      height: 48,
-      child: ElevatedButton(
-        onPressed: onPressed,
-        style: ElevatedButton.styleFrom(
-          backgroundColor: backgroundColor,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
-            side:
-                borderColor != null
-                    ? BorderSide(color: borderColor)
-                    : BorderSide.none,
-          ),
-          elevation: 0,
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // Icon(icon, color: iconColor),
-            // const SizedBox(width: 8),
-            Text(
-              text,
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
-                color: iconColor,
-              ),
-            ),
-          ],
         ),
       ),
     );

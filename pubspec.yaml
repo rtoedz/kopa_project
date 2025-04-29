@@ -34,6 +34,8 @@ dependencies:
   get: ^4.7.2
   lottie: any
   hexcolor: ^3.0.1
+  mobile_scanner: ^6.0.10
+  dotted_border: ^2.1.0
 
 dev_dependencies:
   flutter_test:
@@ -58,7 +60,18 @@ flutter:
     - assets/images/login_screen/
     - assets/images/splash_screen/
     - assets/lottie/
-
+    - assets/images/general/
+  
+  fonts:
+    - family: MBCorpoSText
+      fonts:
+        - asset: assets/fonts/MBCorpoSText-Regular.otf
+          weight: 400
+        - asset: assets/fonts/MBCorpoSText-Light.otf
+          weight: 300
+    - family: MBCorpoATitle
+      fonts:
+        - asset: assets/fonts/MBCorpoATitle-Regular.otf
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
