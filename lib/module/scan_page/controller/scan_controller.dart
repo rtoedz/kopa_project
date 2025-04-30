@@ -5,7 +5,17 @@ import 'package:mobile_scanner/mobile_scanner.dart';
 class ScanController extends GetxController {
   final MobileScannerController cameraController = MobileScannerController();
 
+  var selectedVehicleType = ''.obs;
+  RxBool isDropdownOpen = false.obs;
+
+  final List<String> vehicleType = [
+    'EQE SUV',
+    'Maybach',
+    'E-Class All-Terrain 2025',
+  ];
+
   bool _hasScanned = false;
+  
 
   void handleBarcode(String code) {
     if (_hasScanned) return;

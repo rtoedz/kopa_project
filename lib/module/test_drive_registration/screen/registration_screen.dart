@@ -190,7 +190,7 @@ class RegistrationScreen extends StatelessWidget {
             const SizedBox(height: 16),
             // Sales Accountant Dropdown
             CustomTextField(
-              controller: controller.SalesAccountantController,
+              controller: controller.salesAccountantController,
               hintText: 'Enter Sales Accountant Name',
               hintStyle: TypographyStyle.body.copyWith(color: Colors.black54),
               keyboardType: TextInputType.name,

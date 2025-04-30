@@ -13,7 +13,6 @@ class LoginPageScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final LoginController controller = Get.put(LoginController());
 
-
     return WillPopScope(
       onWillPop: () async {
         Get.offAllNamed(AppRoutes.login);
@@ -35,7 +34,7 @@ class LoginPageScreen extends StatelessWidget {
                     color: Colors.black,
                     child: Column(
                       children: [
-                        const SizedBox(height: 24),
+                        const SizedBox(height: 40),
                         Padding(
                           padding: const EdgeInsets.all(4.0),
                           child: Image.asset(

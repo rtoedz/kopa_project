@@ -6,7 +6,7 @@ class RegistrationController extends GetxController {
   var mobileController = TextEditingController();
   var fullNameController = TextEditingController();
   var emailController = TextEditingController();
-  var SalesAccountantController = TextEditingController();
+  var salesAccountantController = TextEditingController();
 
   // Reactive dropdown values
   var selectedVehicle = ''.obs;
@@ -32,6 +32,6 @@ class RegistrationController extends GetxController {
     print('Regency: $selectedRegency');
     print('Source Info: $selectedSourceInfo');
     print('Dealer: $selectedDealer');
-    print('Sales Accountant: ${SalesAccountantController.text}');
+    print('Sales Accountant: ${salesAccountantController.text}');
   }
 }
