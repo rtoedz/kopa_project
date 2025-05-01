@@ -37,6 +37,7 @@ dependencies:
   mobile_scanner: ^6.0.10
   dotted_border: ^2.1.0
   dropdown_button2: ^2.3.9
+  flutter_svg: ^2.1.0
 
 dev_dependencies:
   flutter_test:
@@ -60,7 +61,7 @@ flutter:
     - assets/images/
     - assets/images/login_screen/
     - assets/images/splash_screen/
-    - assets/lottie/
+    - assets/icons/
     - assets/images/general/
   
   fonts:

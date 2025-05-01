@@ -7,6 +7,7 @@ class RegistrationController extends GetxController {
   var fullNameController = TextEditingController();
   var emailController = TextEditingController();
   var salesAccountantController = TextEditingController();
+  var salesPhoneNumberController = TextEditingController();
 
   // Reactive dropdown values
   var selectedVehicle = ''.obs;

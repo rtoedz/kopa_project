@@ -8,4 +8,7 @@ class AppRoutes {
   static const String mainNav = '/nav';
   static const String register = '/register';
   static const String resultScan = '/resultScan';
+  static const String homeAlt = '/homeAlt';
+  static const String showQr = '/showQr';
+  static const String profileAlt = '/profileALt';
   }

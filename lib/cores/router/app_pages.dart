@@ -1,10 +1,13 @@
 import 'package:get/get.dart';
+import 'package:kopa_project/module/home_page/screen/home_page_alt_screen.dart';
 import 'package:kopa_project/module/home_page/screen/home_page_screen.dart';
 import 'package:kopa_project/module/login_page/screen/login_page_screen.dart';
 import 'package:kopa_project/module/navigation/screen/main_nav.dart';
 import 'package:kopa_project/module/profile/screen/profile_screen.dart';
+import 'package:kopa_project/module/profile/screen/profilealt_screen.dart';
 import 'package:kopa_project/module/scan_page/screen/result_scan_screen.dart';
 import 'package:kopa_project/module/scan_page/screen/scan_screen.dart';
+import 'package:kopa_project/module/scan_page/screen/showqr_screen.dart';
 import 'package:kopa_project/module/splash_screen/screen/splash_screen.dart';
 import 'package:kopa_project/module/test_drive_registration/screen/registration_screen.dart';
 
@@ -20,5 +23,8 @@ class AppPages {
     GetPage(name: AppRoutes.mainNav, page: () => MainNavPage()),
     GetPage(name: AppRoutes.register, page: () => const RegistrationScreen()),
     GetPage(name: AppRoutes.resultScan, page: () => const ResultScanScreen()),
+    GetPage(name: AppRoutes.homeAlt, page: () => const HomePageAltScreen()),
+    GetPage(name: AppRoutes.showQr, page: () => const ShowqrPageScreen()),
+    GetPage(name: AppRoutes.profileAlt, page: () => const ProfileAltPageScreen()),
   ];
 }
