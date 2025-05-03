@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kopa_project/cores/router/app_routes.dart';
-import 'package:kopa_project/cores/style/typhography_style.dart';
+import 'package:kopa_project/core/router/app_routes.dart';
+import 'package:kopa_project/core/style/typhography_style.dart';
 import 'package:kopa_project/module/login_page/controller/login_page_controller.dart';
 import 'package:kopa_project/widgets/custom_button.dart';
 import 'package:kopa_project/widgets/custom_textfield.dart';

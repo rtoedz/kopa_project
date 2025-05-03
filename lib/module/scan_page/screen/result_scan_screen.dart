@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:kopa_project/cores/style/typhography_style.dart';
+import 'package:kopa_project/core/style/typhography_style.dart';
 import 'package:kopa_project/module/scan_page/controller/scan_controller.dart';
 
 class ResultScanScreen extends StatelessWidget {

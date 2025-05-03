@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:kopa_project/cores/style/typhography_style.dart';
+import 'package:kopa_project/core/style/typhography_style.dart';
 import 'package:kopa_project/module/home_page/screen/home_page_alt_screen.dart';
 import 'package:kopa_project/module/home_page/screen/home_page_screen.dart';
 import 'package:kopa_project/module/navigation/controller/nav_controller.dart';

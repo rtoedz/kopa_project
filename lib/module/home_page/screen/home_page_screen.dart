@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:kopa_project/cores/style/typhography_style.dart';
+import 'package:kopa_project/core/style/typhography_style.dart';
 import 'package:kopa_project/widgets/custom_appbar.dart';
-import 'package:kopa_project/cores/router/app_routes.dart';
+import 'package:kopa_project/core/router/app_routes.dart';
 
 class HomePageScreen extends StatelessWidget {
   const HomePageScreen({super.key});

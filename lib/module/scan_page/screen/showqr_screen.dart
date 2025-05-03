@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kopa_project/cores/style/typhography_style.dart';
+import 'package:kopa_project/core/style/typhography_style.dart';
 import 'package:kopa_project/module/scan_page/controller/scan_controller.dart';
 import 'package:kopa_project/widgets/custom_appbar.dart';
 import 'package:kopa_project/widgets/custom_button.dart';

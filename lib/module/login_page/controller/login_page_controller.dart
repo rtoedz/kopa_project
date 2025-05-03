@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:kopa_project/cores/router/app_routes.dart';
+import 'package:kopa_project/core/router/app_routes.dart';
 import 'package:kopa_project/module/navigation/screen/main_nav.dart';
 
 class LoginController extends GetxController {
