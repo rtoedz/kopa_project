@@ -11,4 +11,5 @@ class AppRoutes {
   static const String homeAlt = '/homeAlt';
   static const String showQr = '/showQr';
   static const String profileAlt = '/profileALt';
-  }
+  static const String queueDetailScreen = '/queueDetailScreen';
+}

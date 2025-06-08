@@ -30,64 +30,69 @@ class HomePageAltScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
               ),
               padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Qurrent Queue',
-                    style: TypographyStyle.body.copyWith(
-                      fontSize: 24,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
+              child: InkWell(
+                onTap: () {
+                  Get.toNamed(AppRoutes.queueDetailScreen);
+                },
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Current Queue',
+                      style: TypographyStyle.body.copyWith(
+                        fontSize: 24,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 12),
-                  Row(
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Customer Queue Number',
-                            style: TypographyStyle.body.copyWith(
-                              fontSize: 16,
-                              color: Colors.black,
+                    const SizedBox(height: 12),
+                    Row(
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Customer Queue Number',
+                              style: TypographyStyle.body.copyWith(
+                                fontSize: 16,
+                                color: Colors.black,
+                              ),
                             ),
-                          ),
-                          Text(
-                            'A-1',
-                            style: TypographyStyle.body.copyWith(
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black,
+                            Text(
+                              'A-1',
+                              style: TypographyStyle.body.copyWith(
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-                      const Spacer(),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Text(
-                            'Estimate Time',
-                            style: TypographyStyle.body.copyWith(
-                              fontSize: 16,
-                              color: Colors.black,
+                          ],
+                        ),
+                        const Spacer(),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Text(
+                              'Estimate Time',
+                              style: TypographyStyle.body.copyWith(
+                                fontSize: 16,
+                                color: Colors.black,
+                              ),
                             ),
-                          ),
-                          Text(
-                            '15 Mins',
-                            style: TypographyStyle.body.copyWith(
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black,
+                            Text(
+                              '15 Mins',
+                              style: TypographyStyle.body.copyWith(
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ],
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
             const SizedBox(height: 16),
